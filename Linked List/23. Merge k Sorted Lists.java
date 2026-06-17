@@ -1,14 +1,23 @@
 /*
-Problem: 23. Merge k Sorted Lists
+# 23. Merge k Sorted Lists
+
 Link: https://leetcode.com/problems/merge-k-sorted-lists/
 
 Difficulty: Hard
 Topic: Linked List, Divide and Conquer, Heap
 
 --------------------------------------------------
+
 Approach 1: Divide and Conquer
+
 Time Complexity: O(N log k)
 Space Complexity: O(log k)
+
+where:
+N = total number of nodes across all linked lists
+k = number of linked lists
+
+--------------------------------------------------
 */
 class Solution {
 
@@ -41,79 +50,29 @@ class Solution {
             return l1;
 
         if (l1.val <= l2.val) {
-
             l1.next = mergeTwoLists(l1.next, l2);
             return l1;
-
         } else {
-
             l2.next = mergeTwoLists(l1, l2.next);
             return l2;
         }
     }
 }
+
 /*
 --------------------------------------------------
+
 Approach 2: Priority Queue
-Time Complexity: O(N log k)
-Space Complexity: O(k)
-*/
-class Solution {
 
-    public ListNode mergeKLists(ListNode[] lists) {
-
-        PriorityQueue<ListNode> pq =
-            new PriorityQueue<>((a, b) -> a.val - b.val);
-
-        for (ListNode node : lists) {
-            if (node != null) {
-                pq.offer(node);
-            }
-        }
-
-        ListNode dummy = new ListNode(-1);
-        ListNode tail = dummy;
-
-        while (!pq.isEmpty()) {
-
-            ListNode curr = pq.poll();
-
-            tail.next = curr;
-            tail = tail.next;
-
-            if (curr.next != null) {
-                pq.offer(curr.next);
-            }
-        }
-
-        return dummy.next;
-    }
-}
-/*
---------------------------------------------------
-Active Solution: Priority Queue
 Time Complexity: O(N log k)
 Space Complexity: O(k)
 
 where:
-N = total number of nodes across all lists
+N = total number of nodes across all linked lists
 k = number of linked lists
+
 --------------------------------------------------
 */
-
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
 class Solution {
 
     public ListNode mergeKLists(ListNode[] lists) {
