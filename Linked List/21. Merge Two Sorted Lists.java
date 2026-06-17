@@ -5,20 +5,11 @@ Link: https://leetcode.com/problems/merge-two-sorted-lists/
 Difficulty: Easy
 Topic: Linked List
 
+--------------------------------------------------
+Approach 1: Iterative
 Time Complexity: O(n + m)
 Space Complexity: O(1)
 */
-
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
@@ -41,5 +32,46 @@ class Solution {
         temp.next = (list1 == null) ? list2 : list1;
 
         return head.next;
+    }
+}
+/*
+--------------------------------------------------
+Approach 2: Recursive
+Time Complexity: O(n + m)
+Space Complexity: O(n + m)
+
+--------------------------------------------------
+*/
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+
+        if (l1 == null)
+            return l2;
+
+        if (l2 == null)
+            return l1;
+
+        if (l1.val <= l2.val) {
+
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+
+        } else {
+
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
+        }
     }
 }
