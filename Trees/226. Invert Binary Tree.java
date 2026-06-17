@@ -1,18 +1,4 @@
 /**
- * LeetCode 226. Invert Binary Tree
- * https://leetcode.com/problems/invert-binary-tree/
- *
- * Tags:
- * Binary Tree
- * DFS
- * Recursion
- *
- * Time Complexity: O(N)
- * N = Number of nodes in the tree.
- *
- * Space Complexity: O(H)
- * H = Height of the tree (recursive call stack).
-
 # LeetCode 226. Invert Binary Tree
 
 **Problem Link:** https://leetcode.com/problems/invert-binary-tree/
