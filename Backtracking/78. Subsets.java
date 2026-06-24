@@ -94,10 +94,7 @@ class Solution {
         return ans;
     }
 
-    private void backtrack(
-            int[] nums,
-            int start,
-            List<Integer> subset) {
+    private void backtrack( int[] nums, int start, List<Integer> subset) {
 
         ans.add(new ArrayList<>(subset));
 
