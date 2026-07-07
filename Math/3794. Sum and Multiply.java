@@ -1,6 +1,6 @@
 /*
  * LeetCode: 3794. Sum and Multiply
- * https://leetcode.com/problems/sum-and-multiply/
+ * https://leetcode.com/problems/concatenate-non-zero-digits-and-multiply-by-sum-i
  *
  * ------------------------------------------------------------
  * Approach: Math + Digit Manipulation
