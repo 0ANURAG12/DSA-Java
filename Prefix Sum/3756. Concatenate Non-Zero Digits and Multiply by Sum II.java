@@ -57,6 +57,7 @@ class Solution {
         long[] pow10        = new long[n + 1]; // 10^i
 
         pow10[0] = 1;
+        
         for (int i = 1; i <= n; i++) pow10[i] = (pow10[i - 1] * 10) % MOD;
 
         nonZeroCount[0] = (s.charAt(0) != '0') ? 1 : 0;
