@@ -88,3 +88,169 @@ class Solution {
         };
     }
 }
+/*
+ * ============================================================
+ * APPROACH 2: Sorting + Two Pointers (Early Termination)
+ * ============================================================
+ *
+ * Intuition:
+ * - Sort the array and fix the first element.
+ *
+ * - If nums[i] > 0, stop the loop because all remaining
+ *   elements are also positive, so their sum cannot be zero.
+ *
+ * - Skip duplicate values of nums[i].
+ *
+ * - Use left and right pointers to find the other two elements.
+ *
+ * - If the sum is positive, move the right pointer left.
+ *
+ * - If the sum is negative, move the left pointer right.
+ *
+ * - If the sum is zero, add the triplet, move both pointers,
+ *   and skip duplicate values at the left pointer.
+ *
+ *
+ * Time Complexity: O(n^2)
+ * Auxiliary Space Complexity: O(log n) typically for sorting.
+ */
+
+
+public class Solution {
+
+    public List<List<Integer>> threeSum(int[] nums) {
+
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+
+        for (int i = 0; i < nums.length - 2; i++) {
+
+            // All remaining values are positive
+            if (nums[i] > 0) {
+                break;
+            }
+
+            // Skip duplicate first elements
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            int l = i + 1;
+            int r = nums.length - 1;
+
+            while (l < r) {
+
+                int sum = nums[i] + nums[l] + nums[r];
+
+                if (sum > 0) {
+                    r--;
+                } else if (sum < 0) {
+                    l++;
+                } else {
+
+                    res.add(Arrays.asList(
+                        nums[i], nums[l], nums[r]
+                    ));
+
+                    l++;
+                    r--;
+
+                    // Skip duplicate left values
+                    while (l < r && nums[l] == nums[l - 1]) {
+                        l++;
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
+}
+
+
+/*
+ * ============================================================
+ * APPROACH 3: Sorting + Two Pointers (Skip Both Duplicates)
+ * ============================================================
+ *
+ * Intuition:
+ * - This approach follows the same two-pointer strategy.
+ *
+ * - Sort the array and stop early when nums[i] > 0.
+ *
+ * - Skip duplicate first elements to avoid repeating triplets.
+ *
+ * - When the sum is zero, add the triplet and move both
+ *   pointers inward.
+ *
+ * - Skip duplicate values on both sides:
+ *
+ *   Left:
+ *   nums[l] == nums[l - 1]
+ *
+ *   Right:
+ *   nums[r] == nums[r + 1]
+ *
+ * - Skipping duplicates on both sides ensures that the same
+ *   pair is not processed repeatedly.
+ *
+ *
+ * Time Complexity: O(n^2)
+ * Auxiliary Space Complexity: O(log n) typically for sorting.
+ */
+
+
+public class Solution {
+
+    public List<List<Integer>> threeSum(int[] nums) {
+
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+
+        for (int i = 0; i < nums.length - 2; i++) {
+
+            // All remaining values are positive
+            if (nums[i] > 0) {
+                break;
+            }
+
+            // Skip duplicate first elements
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            int l = i + 1;
+            int r = nums.length - 1;
+
+            while (l < r) {
+
+                int sum = nums[i] + nums[l] + nums[r];
+
+                if (sum > 0) {
+                    r--;
+                } else if (sum < 0) {
+                    l++;
+                } else {
+
+                    res.add(Arrays.asList(
+                        nums[i], nums[l], nums[r]
+                    ));
+
+                    l++;
+                    r--;
+
+                    // Skip duplicate values on both sides
+                    while (l < r && nums[l] == nums[l - 1]) {
+                        l++;
+                    }
+
+                    while (l < r && nums[r] == nums[r + 1]) {
+                        r--;
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
+}
