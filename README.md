@@ -11,24 +11,23 @@ This repository contains LeetCode solutions organized topic-wise for interview p
 - Java
 
 ---
-
 ## 📚 Topics Covered
 
-- Arrays
-- Strings
+- Arrays (Prefix Sum, Two Pointers)
+- Strings (Pattern Matching, Two Pointers)
 - Linked List
-- Stack
-- Queue
 - Binary Search
-- Trees
-- Graphs
+- Trees (Binary Lifting, Segment Tree)
+- Trie
+- Graph
 - Dynamic Programming
 - Greedy
+- Sliding Window
+- Heap / Priority Queue
 - Bit Manipulation
 - Backtracking
-- Sliding Window
-- Two Pointers
-- Heap / Priority Queue
+- Math
+- Design
 
 ---
 
@@ -37,20 +36,26 @@ This repository contains LeetCode solutions organized topic-wise for interview p
 ```text
 DSA-Java/
 ├── Arrays/
-├── Strings/
-├── Linked List/
-├── Stack/
-├── Queue/
-├── Binary Search/
-├── Trees/
-├── Graphs/
-├── Dynamic Programming/
-├── Greedy/
-├── Bit Manipulation/
+│   ├── Prefix Sum/
+│   └── Two Pointers/
 ├── Backtracking/
+├── Binary Search/
+├── Bit Manipulation/
+├── Design/
+├── Dynamic Programming/
+├── Graph/
+├── Greedy/
+├── Heap/
+├── Linked List/
+├── Math/
 ├── Sliding Window/
-├── Two Pointers/
-└── Heap/
+├── Strings/
+│   ├── Pattern Matching/
+│   └── Two Pointers/
+├── Trees/
+│   ├── Binary Lifting/
+│   └── Segment Tree/
+└── Trie/
 ```
 
 ---
